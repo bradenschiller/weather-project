@@ -22,4 +22,4 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Checkout the project is use
 
-![weather-gif](/public/weather_gif.gif)
+![weather-gif](/public/gif_weather.gif)
