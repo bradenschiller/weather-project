@@ -1,4 +1,4 @@
-import WeatherList from "../components/WeatherList";
+import WeatherList from "@/components/WeatherList";
 
 export default function Home() {
   return (

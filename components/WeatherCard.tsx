@@ -1,23 +1,14 @@
 "use client";
 
 import * as React from "react";
-import { Weather } from "../app/data/weatherData";
+import { Weather } from "@/app/data/weatherData";
+import { convertToFahrenheit } from "@/app/utils/temperature";
 
 export interface WeatherCardProps {
   weather: Weather;
   onRemoveFavorite: (cityId: number) => void;
   onAddFavorite: (cityId: number) => void;
   isFavorite: boolean;
-}
-
-function convertTemperature(
-  temperature: number,
-  toFahrenheit: boolean
-): number {
-  if (toFahrenheit) {
-    return (temperature * 9) / 5 + 32;
-  }
-  return Math.round(((temperature - 32) * 5) / 9);
 }
 
 export default function WeatherCard(props: WeatherCardProps) {
@@ -39,8 +30,9 @@ export default function WeatherCard(props: WeatherCardProps) {
         onClick={() => setToFahrenheit(!toFahrenheit)}
         className="border px-4 py-2"
       >
-        {convertTemperature(weather.temperature, toFahrenheit)}
-        {toFahrenheit ? "F" : "°C"}
+        {toFahrenheit
+          ? `${convertToFahrenheit(weather.temperature)} °F`
+          : `${weather.temperature} °C`}
       </td>
       <td className="border px-4 py-2">{weather.description}</td>
       <td className="border px-4 py-2">
